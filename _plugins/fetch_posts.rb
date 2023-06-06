@@ -13,7 +13,7 @@ end
 
 class BeatrootNews < Jekyll::Generator
   safe true
-  priority :high
+  priority :highest
 
   SOURCE_URL = "https://beatrootnews.com/api.php/article?page%5Blimit%5D=60&sort=-publishing_date"
 
