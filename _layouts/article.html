@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article>
+  <div class="story-container">
+    <p class="slug-line">
+      <a class="slug-link" href="/">Beatroot</a> &gt;
+      <a class="slug-link" href="/{{page.topics.first}}/">{{page.topics.first | capitalize}}</a>
+    </p>
+    <div class="story-head">
+      <h1 class="story-title">{{page.title}}</h1>
+      <p>{{page.sources | join: " "}}</p>
+        <p>{{page.date | date: "%A, %b, %e, %Y"}}</p>
+    </div>
+    <div class="hr-line"></div>
+
+    <div class="paragraphs-container">
+      {{content}}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,26 @@
+---
+title: "Beatroot News: Text-only"
+layout: default
+---
+<p></p>
+<div class="topic-container">
+<h1 class="topic-heading">{{page.title}}</h1>
+<div class="hr-line"></div>
+<p class="topic-date">{{site.time | date: "%A, %b, %e, %Y"}}</p>
+{% for topic in site.topics %}
+<h3><a href="/{{topic}}/">{{topic | capitalize}}</a></h3>
+	<ul>
+	{% for post in site.pages %}
+	{% if post.topics and post.days_ago < 2 and post.topics.first == topic %}
+
+		{% unless post.sources contains "PTI" %}
+		<details><summary>{{post.title | trim}}</summary>
+			<div class="details-content">{{post.content}}</div>
+		</details>
+		{% endunless %}
+
+	{%endif%}
+	{% endfor %}
+	</ul>
+{% endfor %}
+</div>
