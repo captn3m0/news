@@ -39,7 +39,7 @@ class BeatrootNews < Jekyll::Generator
     topics.each do |topic|
       @site.pages << make_topic_page(topic)
     end
-    site.config['topics'] = topics.to_a
+    site.config['topics'] = topics.to_a.sort
   end
 
   private
