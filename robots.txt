@@ -1,0 +1,2 @@
+Sitemap: https://news.tatooine.club/sitemap.xml
+User-agent: *
