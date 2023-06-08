@@ -5,6 +5,18 @@ require 'net/http'
 require 'set'
 require 'date'
 
+SANITIZE_CONFIG = {
+  :elements => ['a', 'span', 'p', 'i', 'br'],
+
+  :attributes => {
+    'a'    => ['href', 'title']
+  },
+
+  :protocols => {
+    'a' => {'href' => ['http', 'https']}
+  }
+}
+
 class PageWithoutAFile < Jekyll::Page
   def read_yaml(*)
     @data ||= {}
@@ -74,7 +86,7 @@ class BeatrootNews < Jekyll::Generator
         html = "<p><b>#{article['trigger_warning_text']}</b></p>" + html
       end
 
-      file.content = Sanitize.fragment(html, Sanitize::Config::BASIC)
+      file.content = Sanitize.fragment(html, SANITIZE_CONFIG)
       
       date = timestamp(article['updated_on'])
       file.data.merge!(
