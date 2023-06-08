@@ -74,7 +74,7 @@ class BeatrootNews < Jekyll::Generator
         html = "<p><b>#{article['trigger_warning_text']}</b></p>" + html
       end
 
-      file.content = Sanitize.fragment(html, Sanitize::Config::RELAXED)
+      file.content = Sanitize.fragment(html, Sanitize::Config::BASIC)
       
       date = timestamp(article['updated_on'])
       file.data.merge!(
