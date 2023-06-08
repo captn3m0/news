@@ -14,7 +14,7 @@ layout: default
 	{% if post.topics and post.days_ago < 2 and post.topics.first == topic %}
 
 		{% unless post.sources contains "PTI" %}
-		<details><summary>{{post.title | trim}}</summary>
+		<details><summary>{{post.title | strip}}</summary>
 			<div class="details-content">{{post.content}}</div>
 		</details>
 		{% endunless %}

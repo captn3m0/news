@@ -8,7 +8,7 @@ layout: default
       <a class="slug-link" href="/{{page.topics.first}}/">{{page.topics.first | capitalize}}</a>
     </p>
     <div class="story-head">
-      <h1 class="story-title">{{page.title}}</h1>
+      <h1 class="story-title">{{page.title | strip}}</h1>
       <p>{{page.sources | join: " "}}</p>
         <p>{{page.date | date: "%A, %b, %e, %Y"}}</p>
     </div>

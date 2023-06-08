@@ -5,7 +5,7 @@ layout: default
 	<a class="slug-link" href="/">Beatroot</a> &gt; {{page.title | capitalize}}
 </p>
 <div class="topic-container">
-<h1 class="topic-heading">{{page.title | capitalize}}</h1>
+<h1 class="topic-heading">{{page.title | capitalize  | strip}}</h1>
 <div class="hr-line"></div>
 <p class="topic-date">{{site.time | date: "%A, %b, %e, %Y"}}</p>
 <ul>
@@ -13,7 +13,7 @@ layout: default
 {% if post.topics contains page.topic %}
 	<li>
 		<details>
-			<summary>{{post.title | trim}} <a class="topic-title" href="{{post.url}}">🔗</a>
+			<summary>{{post.title | strip}} <a class="topic-title" href="{{post.url}}">🔗</a>
 			{% if post.sources contains "PTI" %}<span title="Syndicated News">📡</span>{%endif%}
 		</summary>
 		<div class="details-content">{{post.content}}</div>
