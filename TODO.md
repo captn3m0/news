@@ -13,3 +13,4 @@
 - [ ] Add sign for "developing story"
 - [ ] Fix tap target size in bottom footer.
 - [ ] Make "/" in bottom footer using CSS after
+- [ ] Check color accessibility for viewed tags.
