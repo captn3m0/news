@@ -11,16 +11,17 @@ layout: default
 
 {% for post in site.pages %}
 {% if post.topics contains page.topic %}
-	<details>
-		<summary>
-			<h2>{{post.title | strip}} </h2>
-			<a class="topic-title" href="{{post.url}}">🔗</a>
-			{% if post.sources contains "PTI" %}
-			<span title="Syndicated News">📡</span>
-			{%endif%}
-		</summary>
-	<div class="details-content">{{post.content}}</div>
+<details>
+	<summary>
+		<h2>{{post.title | strip}} </h2>
+		<a class="topic-title" href="{{post.url}}">🔗</a>
+		{% if post.sources contains "PTI" %}
+		<span title="Syndicated News">📡</span>
+		{%endif%}
+	</summary>
+<div class="details-content">{{post.content}}</div>
+</details>
 {%endif%}
 {% endfor %}
 
-</div>
+</div> <!-- topic-container -->
