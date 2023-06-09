@@ -62,7 +62,7 @@ class BeatrootNews < Jekyll::Generator
         'title'    => topic.capitalize,
         'layout'   => 'topic',
         'topic'    => topic,
-        'permalink' => "/#{topic}/",
+        'permalink' => "/#{topic}/"
       )
       file.output
     end
@@ -95,7 +95,9 @@ class BeatrootNews < Jekyll::Generator
         "title"    => article['title'],
         "layout"   => 'article',
         "topics"   => topics,
-        "days_ago" => (now - date).floor
+        "days_ago" => (now - date).floor,
+        # Limit to 200 characters
+        "description" => Sanitize.fragment(html)[0..200]
       )
       file.output
     end
