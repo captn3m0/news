@@ -13,3 +13,5 @@ plugins:
   - jekyll-seo-tag
   - octopress-minify-html
 env: development
+webmaster_verifications:
+  google: "sR2qUrWTIJvtOlBP4RwHSavUoICUZaIGYLdxuylnSc4"

@@ -92,12 +92,23 @@ class BeatrootNews < Jekyll::Generator
       file.data.merge!(
         'sources'  => article['sources'],
         "date"     => date,
+        
         "title"    => article['title'],
         "layout"   => 'article',
         "topics"   => topics,
         "days_ago" => (now - date).floor,
         # Limit to 200 characters
-        "description" => Sanitize.fragment(html)[0..200]
+        "description" => Sanitize.fragment(html)[0..200],
+        "seo" => {
+          "type" => "NewsArticle",
+          "links" => [
+            "https://app.beatrootnews.com/#article-#{article['id']}",
+            "https://beatrootnews.com/custom/share?type=article&slug=#{article['slug']}"
+          ],
+          "date_modified"     => date
+        },
+        # This is currently disabled because the page doesn't load in desktop
+        # "canonical_url" => "https://app.beatrootnews.com/#article-#{article['id']}"
       )
       file.output
     end
