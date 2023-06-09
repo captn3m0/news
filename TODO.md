@@ -1,0 +1,13 @@
+- [ ] Fix top margin/whitespace in topic pages
+- [ ] Drop empty sections in homepage
+- [ ] Use upstream as canonical page when it gets fast enough
+- [ ] Grey out read articles. Keep track using localstorage.
+- [ ] Un-grey articles that were updated. Use combination of article_id + last_updated
+- [ ] Create a /settings page
+	- [ ] Show syndicated articles in home page (default OFF)
+	- [ ] Pick sections for home-page
+	- [ ] Highlight words
+	- [ ] Font adjustments
+	- [ ] Clear "read articles"
+- [ ] Redirect 404 articles to upstream
+- [ ] Add sign for "developing story"
