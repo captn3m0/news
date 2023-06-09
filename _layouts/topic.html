@@ -11,7 +11,7 @@ layout: default
 
 {% for post in site.pages %}
 {% if post.topics contains page.topic %}
-<details>
+<details data-hash="{{post.id}}-{{post.date | date: '%s'}}">
 	<summary>
 		<h2>{{post.title | strip}} </h2>
 		<a class="topic-title" href="{{post.url}}">🔗</a>

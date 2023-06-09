@@ -81,23 +81,25 @@ class BeatrootNews < Jekyll::Generator
     now = DateTime.new(n.year, n.month, n.day, 23, 59, 59, "+0530")
     PageWithoutAFile.new(@site, __dir__, article['id'], "index.html").tap do |file|
       html = article['body_json']['blocks'].map{ |t| t['data']['text']}.join(" ")
+      html = Sanitize.fragment(html, SANITIZE_CONFIG)
       topics = article['topic'].map { |topic| topic.split('-').first }
       if article['trigger_warning']
         html = "<p><b>#{article['trigger_warning_text']}</b></p>" + html
       end
 
-      file.content = Sanitize.fragment(html, SANITIZE_CONFIG)
+      file.content = html
       
       date = timestamp(article['updated_on'])
       file.data.merge!(
         'sources'  => article['sources'],
         "date"     => date,
-        
+        "id"       => article['id'],
+        "slug"     => article['slug'],
         "title"    => article['title'],
         "layout"   => 'article',
         "topics"   => topics,
         "days_ago" => (now - date).floor,
-        # Limit to 200 characters
+        # Limit to 200 characters and no tags
         "description" => Sanitize.fragment(html)[0..200],
         "seo" => {
           "type" => "NewsArticle",

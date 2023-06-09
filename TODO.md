@@ -11,3 +11,5 @@
 	- [ ] Clear "read articles"
 - [ ] Redirect 404 articles to upstream
 - [ ] Add sign for "developing story"
+- [ ] Fix tap target size in bottom footer.
+- [ ] Make "/" in bottom footer using CSS after
