@@ -8,19 +8,17 @@ layout: default
 <div class="hr-line"></div>
 <p class="topic-date">{{site.time | date: "%A, %b, %e, %Y"}}</p>
 {% for topic in site.topics %}
-<h3><a href="/{{topic}}/">{{topic | capitalize}}</a></h3>
-	<ul>
+<h2><a href="/{{topic}}/">{{topic | capitalize}}</a></h2>
 	{% for post in site.pages %}
 	{% if post.topics and post.days_ago < 2 and post.topics.first == topic %}
 
 		{% unless post.sources contains "PTI" %}
-		<details><summary>{{post.title | strip}}</summary>
+		<details><summary><h3>{{post.title | strip}}</h3></summary>
 			<div class="details-content">{{post.content}}</div>
 		</details>
 		{% endunless %}
 
 	{%endif%}
 	{% endfor %}
-	</ul>
 {% endfor %}
 </div>

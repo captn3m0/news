@@ -1,6 +1,16 @@
 title: "Beatroot News: Text-only"
-description: >- # this means to ignore newlines until "baseurl:"
-  A plain-text version of Beatroot News.
+tagline: A plain-text version of Beatroot News.
+description: >-
+  This site is a text-only minimal version of [Beatroot News](https://app.beatrootnews.com/), a new news app by Freemedia Interactive Private Limited.
+  It is maintained by [Nemo](https://github.com/captn3m0), and is meant as a minimal news website that you can check once a day.
+  This text-only version is unaffiliated with Beatroot News or Freemedia Interactive Private Limited.
+logo: /favicon.png
+locale: en_IN
 baseurl: ""
 url: "https://news.tatooine.club"
 timezone: Asia/Kolkata
+plugins:
+  - jekyll-seo-tag
+  - octopress-minify-html
+# Run with JEKYLL_ENV=production to run minify plugin
+env: development
