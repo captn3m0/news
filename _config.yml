@@ -12,5 +12,4 @@ timezone: Asia/Kolkata
 plugins:
   - jekyll-seo-tag
   - octopress-minify-html
-# Run with JEKYLL_ENV=production to run minify plugin
 env: development
