@@ -18,33 +18,9 @@
   {{content}}
 </main>
 
-
 <div class="hr-line"></div>
-
-<nav>
-<p>Topics</p>
-<ul>
-    {% for topic in site.topics %}
-    <li class="topic-list"><a href="/{{ topic}}/">{{topic | capitalize}}</a> /</li>
-    {% endfor %}
-</ul>
-</nav>
-
-<footer>
-  
-  <nav class="lower-nav-container">
-    <span>Beatroot News</span>
-    <li><a href="https://home.beatrootnews.com/contact">Contact</a></li>
-    <li><a href="https://home.beatrootnews.com/about">About</a></li>
-    <li><a href="https://home.beatrootnews.com/terms">Privacy Policy & Terms</a></li>
-  </nav>
-  <nav class="lower-nav-container">
-    <span>This Website</span>
-    <li><a href="/about/">About</a></li>
-  </nav>
-
-  <p>Content &copy; Beatroot News. Last Updated: {{site.time| date: "%b %e %l:%M%P" }}</p>
-</footer>
+{% include topics.html %}
+{% include footer.html %}
 
 </body>
 </html>

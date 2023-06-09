@@ -6,7 +6,7 @@ layout: default
 <div class="topic-container">
 <h1 class="topic-heading">{{page.title}}</h1>
 <div class="hr-line"></div>
-<p class="topic-date">{{site.time | date: "%A, %b, %e, %Y"}}</p>
+<p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time></p>
 {% for topic in site.topics %}
 <h2><a href="/{{topic}}/">{{topic | capitalize}}</a></h2>
 	{% for post in site.pages %}
