@@ -10,7 +10,7 @@
 	- [ ] Font adjustments
 	- [ ] Clear "read articles"
 - [x] Redirect 404 articles to upstream
-- [ ] Add sign for "developing story"
+- [x] Add sign for "developing story"
 - [ ] Fix tap target size in bottom footer.
 - [ ] Make "/" in bottom footer using CSS after
 - [ ] Check color accessibility for viewed tags.
