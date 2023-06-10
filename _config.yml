@@ -12,6 +12,7 @@ timezone: Asia/Kolkata
 plugins:
   - jekyll-seo-tag
   - octopress-minify-html
+  - uglifier
 env: development
 webmaster_verifications:
   google: sR2qUrWTIJvtOlBP4RwHSavUoICUZaIGYLdxuylnSc4
