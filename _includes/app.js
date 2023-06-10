@@ -1,3 +1,5 @@
+// Note: Use ES5 only
+
 document.addEventListener('DOMContentLoaded', function () {
   // Get the list of hashes from local storage
   var storedHashes = localStorage.getItem('eventHashes');

@@ -10,6 +10,7 @@ baseurl: ""
 url: "https://news.tatooine.club"
 timezone: Asia/Kolkata
 plugins:
+  - jekyll-include-cache
   - jekyll-seo-tag
   - octopress-minify-html
   - uglifier
@@ -17,3 +18,7 @@ env: development
 webmaster_verifications:
   google: sR2qUrWTIJvtOlBP4RwHSavUoICUZaIGYLdxuylnSc4
   bing: 786007083CF16051F7322AF072B1D04E
+html_press:
+  unquoted_attributes: true
+  drop_empty_values: true
+  strip_crlf: false
