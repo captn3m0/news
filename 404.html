@@ -22,4 +22,22 @@ layout: default
 
   <p><strong>Page not found :(</strong></p>
   <p>The requested page could not be found.</p>
+  <p>This website only keeps articles from the last few days, so if you landed here from a link, it's likely that the article is no longer available. This page will automatically redirect to Beatroot News in such cases.</p>
 </div>
+
+<script>
+// Get the current pathname
+var currentPath = window.location.pathname;
+
+// Extract the integer from the pathname using regular expressions
+var match = currentPath.match(/\/(\d+)\//);
+
+// Check if a match is found and the matched string is an integer
+if (match && !isNaN(match[1])) {
+  // Extract the integer value
+  var integer = match[1];
+
+  // Redirect the user to the desired URL
+  window.location.href = `https://app.beatrootnews.com/#article-${integer}`;
+}
+</script>
