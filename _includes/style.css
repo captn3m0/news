@@ -105,3 +105,16 @@ h6 {
 details.viewed>summary {
   color: #999;
 }
+
+details .real-title {
+  display: none;
+}
+details[open] .real-title {
+  display: inline;
+}
+details .trigger-warning {
+  font-weight: bold !important;
+}
+details[open] .trigger-warning {
+  display: none;
+}

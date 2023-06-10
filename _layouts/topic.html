@@ -13,7 +13,14 @@ layout: default
 {% if post.topics contains page.topic %}
 <details data-hash="{{post.id}}-{{post.date | date: '%s'}}">
 	<summary>
-		<h2>{{post.title | strip}} </h2>
+		<h2>
+		{% if post.trigger_warning %}
+		<span class="trigger-warning">{{post.trigger_warning |strip_html | strip}}</span>
+		<span class="real-title">{{post.title}}</span>
+		{% else %}
+		{{post.title | strip}}
+		{% endif %}
+		</h2>
 		<a class="topic-title" href="{{post.url}}">🔗</a>
 		{% if post.sources contains "PTI" or post.sources contains "IE"%}
 		<span title="Syndicated News">📡</span>

@@ -83,8 +83,10 @@ class BeatrootNews < Jekyll::Generator
       html = article['body_json']['blocks'].map{ |t| t['data']['text']}.join(" ")
       html = Sanitize.fragment(html, SANITIZE_CONFIG)
       topics = article['topic'].map { |topic| topic.split('-').first }
+      tw = nil
       if article['trigger_warning']
         html = "<p><b>#{article['trigger_warning_text']}</b></p>" + html
+        tw = article['trigger_warning_text']
       end
 
       file.content = html
@@ -101,6 +103,7 @@ class BeatrootNews < Jekyll::Generator
         "days_ago" => (now - date).floor,
         # Limit to 200 characters and no tags
         "description" => Sanitize.fragment(html)[0..200],
+        "trigger_warning" => tw,
         "seo" => {
           "type" => "NewsArticle",
           "links" => [
