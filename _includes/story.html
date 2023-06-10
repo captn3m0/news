@@ -1,6 +1,13 @@
 <details data-hash="{{include.story.id}}-{{include.story.date | date: '%s'}}">
 	<summary>
-		<h3>{{include.story.title | strip}}</h3>
+		<h3>
+			{% if post.trigger_warning %}
+			<span class="trigger-warning">{{post.trigger_warning |strip_html | strip}}</span>
+			<span class="real-title">{{post.title}}</span>
+			{% else %}
+			{{post.title | strip}}
+			{% endif %}
+		</h3>
 		{% if include.story.content.downcase contains "developing story" %}<span title="Developing Story">✍</span>{%endif%}
 	</summary>
 	<div class="details-content">{{include.story.content}}</div>
