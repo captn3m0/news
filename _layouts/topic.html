@@ -15,7 +15,7 @@ layout: default
 	<summary>
 		<h2>{{post.title | strip}} </h2>
 		<a class="topic-title" href="{{post.url}}">🔗</a>
-		{% if post.sources contains "PTI" %}
+		{% if post.sources contains "PTI" or post.sources contains "IE"%}
 		<span title="Syndicated News">📡</span>
 		{%endif%}
 	</summary>
