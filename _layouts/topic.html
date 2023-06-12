@@ -10,18 +10,11 @@ layout: default
 <p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time></p>
 
 {% for post in site.pages %}
-{% if post.topics contains page.topic and post.days_ago < 2 %}
+{% if post.topics contains page.topic %}
 <details data-hash="{{post.id}}-{{post.date | date: '%s'}}">
 	<summary>
 		<h2>
-
-		{% if post.trigger_warning %}
-		<span class="trigger-warning">{{post.trigger_warning |strip_html | strip}}</span>
-		<span class="real-title">{{post.title}}</span>
-		{% else %}
-		{{post.title | strip}}
-		{% endif %}
-
+			{% include_cached post-title.html trigger_warning=post.trigger_warning title=post.title %}
 		</h2>
 		<a class="topic-title" href="{{post.url}}">🔗</a>
 		{% if post.syndicated %}

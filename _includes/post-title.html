@@ -1,0 +1,6 @@
+{% if include.trigger_warning %}
+<span class="trigger-warning">{{include.trigger_warning |strip_html | strip}}</span>
+<span class="real-title">{{include.title}}</span>
+{% else %}
+{{include.title | strip}}
+{% endif %}
