@@ -12,6 +12,10 @@ body {
 
 }
 
+main {
+  margin-bottom: 20px;
+}
+
 summary>h3, summary>h2 {
   display: inline;
   font-weight: normal;
@@ -54,6 +58,12 @@ h2 {
 }
 .topic-list {
   display: inline-block;
+  padding: 0px 5px;
+}
+
+/* Separate topics with a slash */
+.topic-list:not(:last-child)::after {
+  content: " /";
 }
 
 .topic-date {

@@ -1,4 +1,4 @@
-- [ ] Fix top margin/whitespace in topic pages
+- [x] Fix top margin/whitespace in topic pages
 - [ ] Drop empty sections in homepage
 - [ ] Use upstream as canonical page when it gets fast enough
 - [x] Grey out read articles. Keep track using localstorage.
@@ -11,6 +11,6 @@
 	- [ ] Clear "read articles"
 - [x] Redirect 404 articles to upstream
 - [x] Add sign for "developing story"
-- [ ] Fix tap target size in bottom footer.
-- [ ] Make "/" in bottom footer using CSS after
+- [x] Fix tap target size in bottom footer.
+- [x] Make "/" in bottom footer using CSS after
 - [ ] Check color accessibility for viewed tags.
