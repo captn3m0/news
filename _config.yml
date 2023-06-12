@@ -16,3 +16,11 @@ env: development
 webmaster_verifications:
   google: sR2qUrWTIJvtOlBP4RwHSavUoICUZaIGYLdxuylnSc4
   bing: 786007083CF16051F7322AF072B1D04E
+# Keep these in lower case
+# An article is marked as syndicated=true
+# in case one of these sources appears in the article
+syndication_sources:
+  - pti
+  - ie
+  - hindustan times
+  - indian express

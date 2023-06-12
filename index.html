@@ -10,9 +10,9 @@ layout: default
 {% for topic in site.topics %}
 <h2><a href="/{{topic}}/">{{topic | capitalize}}</a></h2>
 	{% for post in site.pages %}
-	{% if post.topics and post.days_ago < 2 and post.topics.first == topic %}
+	{% if post.topics and post.topics.first == topic %}
 
-		{% unless post.sources contains "PTI" or post.sources contains "IE" %}
+		{% unless post.syndicated %}
 		{% include_cached story.html story=post %}
 		{% endunless %}
 

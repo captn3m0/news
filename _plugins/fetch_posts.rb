@@ -75,15 +75,25 @@ class BeatrootNews < Jekyll::Generator
     d.new_offset("+0530")
   end
 
+  def syndicated?(article)
+    sources = article['sources'].map(&:downcase)
+    return !(sources & @site.config['syndication_sources']).empty?
+  end
+
   def make_page(article)
     return nil if article['topic'].nil?
     n = DateTime.new
     now = DateTime.new(n.year, n.month, n.day, 23, 59, 59, "+0530")
+    date = timestamp(article['updated_on'])
+    days_ago = (now - date).floor
+    return nil if days_ago > 2
+
     PageWithoutAFile.new(@site, __dir__, article['id'], "index.html").tap do |file|
       html = article['body_json']['blocks'].map{ |t| t['data']['text']}.join(" ")
       html = Sanitize.fragment(html, SANITIZE_CONFIG)
       topics = article['topic'].map { |topic| topic.split('-').first }
       tw = nil
+
       if article['trigger_warning']
         html = "<p><b>#{article['trigger_warning_text']}</b></p>" + html
         tw = article['trigger_warning_text']
@@ -91,7 +101,6 @@ class BeatrootNews < Jekyll::Generator
 
       file.content = html
       
-      date = timestamp(article['updated_on'])
       file.data.merge!(
         'sources'  => article['sources'],
         "date"     => date,
@@ -100,10 +109,11 @@ class BeatrootNews < Jekyll::Generator
         "title"    => article['title'],
         "layout"   => 'article',
         "topics"   => topics,
-        "days_ago" => (now - date).floor,
+        "days_ago" => days_ago,
         # Limit to 200 characters and no tags
         "description" => Sanitize.fragment(html)[0..200],
         "trigger_warning" => tw,
+        "syndicated" => syndicated?(article),
         "seo" => {
           "type" => "NewsArticle",
           "links" => [
@@ -113,6 +123,7 @@ class BeatrootNews < Jekyll::Generator
           "date_modified"     => date
         },
         # This is currently disabled because the page doesn't load in desktop
+        # Or rather doesn't load at all for old links.
         # "canonical_url" => "https://app.beatrootnews.com/#article-#{article['id']}"
       )
       file.output
