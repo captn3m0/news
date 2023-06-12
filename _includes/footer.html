@@ -2,13 +2,17 @@
   {% include_cached topics.html %}  
   <nav class="lower-nav-container">
     <span>Beatroot News</span>
-    <li><a href="https://home.beatrootnews.com/contact">Contact</a></li>
-    <li><a href="https://home.beatrootnews.com/about">About</a></li>
-    <li><a href="https://home.beatrootnews.com/terms">Privacy Policy & Terms</a></li>
+    <ul style="display: inline;">
+      <li><a href="https://home.beatrootnews.com/contact">Contact</a></li>
+      <li><a href="https://home.beatrootnews.com/about">About</a></li>
+      <li><a href="https://home.beatrootnews.com/terms">Privacy Policy & Terms</a></li>
+    </ul>
   </nav>
   <nav class="lower-nav-container">
     <span>This Website</span>
-    <li><a href="/about/">About</a></li>
+    <ul style="display: inline;">
+      <li><a href="/about/">About</a></li>
+    </ul>
   </nav>
 
   <p>Content &copy; Beatroot News. Last Updated: {{site.time| date: "%b %e %l:%M%P" }}</p>
