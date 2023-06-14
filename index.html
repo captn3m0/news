@@ -8,6 +8,7 @@ layout: default
 <div class="hr-line"></div>
 <p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time></p>
 {% for topic in site.topics %}
+<div class="topic-{{topic|downcase}}">
 <h2><a href="/{{topic}}/">{{topic | capitalize}}</a></h2>
 	{% for post in site.pages %}
 	{% if post.topics and post.topics.first == topic %}
@@ -18,5 +19,6 @@ layout: default
 
 	{%endif%}
 	{% endfor %}
+</div>
 {% endfor %}
 </div>
