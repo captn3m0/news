@@ -95,7 +95,7 @@ class BeatrootNews < Jekyll::Generator
       tw = nil
 
       if article['trigger_warning']
-        html = "<p><b>#{article['trigger_warning_text']}</b></p>" + html
+        html = "<b>#{article['trigger_warning_text']}</b><br>" + html
         tw = article['trigger_warning_text']
       end
 
@@ -110,8 +110,9 @@ class BeatrootNews < Jekyll::Generator
         "layout"   => 'article',
         "topics"   => topics,
         "days_ago" => days_ago,
-        # Limit to 200 characters and no tags
-        "description" => Sanitize.fragment(html)[0..200],
+        # We use 300 characters here
+        # and the SEO plugin strips down to 200 with ellepsis
+        "description" => Sanitize.fragment(html)[0...199] + "…",
         "trigger_warning" => tw,
         "syndicated" => syndicated?(article),
         "seo" => {
