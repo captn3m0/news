@@ -43,14 +43,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Set highlight words
   if(hw = document.getElementById('highlight-words')) {
-    hw.value = (JSON.parse(localStorage.getItem("highlightWords"))||[]).join("\n");
+    hw.value = (JSON.parse(localStorage.getItem("highlightWords"))||[]).join(",");
+
+    // Dealing with Textarea Height
+    function calcHeight(value) {
+      let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+      let newHeight = Math.max(50,50+numberOfLineBreaks * 20);
+      return newHeight;
+    }
+
+    hw.style.height = calcHeight(hw.value) + "px";
+    hw.addEventListener("keyup", () => {
+      hw.style.height = calcHeight(hw.value) + "px";
+    });
+
   }
 
   // Save settings
   if(document.getElementById('btn-settings-save')) {
     document.getElementById('btn-settings-save').addEventListener('click', function (e) {
-      val = document.getElementById('highlight-words').value.split("\n").map(function(x){return x.trim()});
+      val = document.getElementById('highlight-words').value.split(",").map(function(x){return x.trim()});
       localStorage.setItem('highlightWords', JSON.stringify(val));
+      // Flash save
+      document.getElementById('btn-settings-save').value='Saved';
+      setTimeout(function(){document.getElementById('btn-settings-save').value='Save';}, 500);
+      // Don't refresh page
       return false;
     });
   }
@@ -65,5 +82,18 @@ document.addEventListener('DOMContentLoaded', function () {
       var markInstance = new Mark(document.querySelector("main"));
       markInstance.mark(JSON.parse(words), {});
     }
+  }
+
+  // Reset read articles
+  if(reset = document.getElementById('btn-settings-reset')){
+    reset.addEventListener('click', function (e) {
+      localStorage.setItem('eventHashes', JSON.stringify([]));
+      // Flash reset
+      e.target.value='All articles marked unread';
+      e.target.disabled=true;
+      setTimeout(function(){e.target.value='Reset';e.target.disabled=false;}, 500);
+      // Don't refresh page
+      return false;
+    });
   }
 });

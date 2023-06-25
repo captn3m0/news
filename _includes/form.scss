@@ -1,0 +1,133 @@
+// Generated Automatically from form.scss
+// Run sassc form.scss > form.css
+@import 'defs';
+
+form{
+  fieldset {
+    label,
+    legend {
+      display: block;
+    }
+
+    legend {
+      margin: $em 0;
+    }
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    display: inline-block;
+    padding: .55 * $em;
+
+    + label,
+    + input[type="checkbox"],
+    + input[type="radio"] {
+      page-break-before: always;
+    }
+  }
+
+  input,
+  select,
+  label {
+    margin-right: .2 * $em;
+  }
+
+  option {
+    @extend %sans-serif;
+  }
+
+  textarea {
+    min-height: 5 * $em;
+    min-width: 20 * $em;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: .7 * $em;
+
+    + * {
+      page-break-before: always;
+    }
+
+    > input {
+      margin-bottom: 0;
+    }
+  }
+
+  input[type="submit"],
+  input[type="reset"],
+  button {
+    background: $beatroot;
+    color: white;
+    cursor: pointer;
+    display: inline;
+    margin-bottom: $em;
+    margin-right: .4 * $em;
+    padding: .3625 * $em 1.3 * $em;
+    text-align: center;
+
+    &:hover {
+      background: darken($white, 15);
+    }
+
+  }
+
+  input[type="submit"],
+  button[type="submit"] {
+    background: $beatroot;
+    color: $white;
+
+    &:hover {
+      background: darken($beatroot, 15);
+      color: darken($white, 25);
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    margin-bottom: $em;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="url"],
+  input[type="phone"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="datetime"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="color"],
+  input[type="time"],
+  input[type="search"],
+  input[type="range"],
+  input[type="file"],
+  input[type="datetime-local"],
+  select,
+  textarea {
+    border: 1px solid $beatroot;
+    padding: .3 * $em .35 * $em;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    flex-grow: 0;
+    height: 1.65 * $em;
+    margin-left: 0;
+    margin-right: .5 * $spacing;
+    vertical-align: middle;
+
+    + label {
+      page-break-before: avoid;
+    }
+  }
+
+  select[multiple] {
+    min-width: 15 * $spacing;
+  }
+}

@@ -10,12 +10,12 @@ title: Roadmap
 ### Planned
 
 - [ ] Check color accessibility for viewed-grey-color.
-- [ ] Create a /settings page
+- [x] Create a /settings page
 	- [ ] Show syndicated articles in home page (default OFF)
 	- [ ] Pick sections for home-page
-	- [ ] Highlight words
+	- [x] Highlight words
 	- [ ] Font adjustments
-	- [ ] Clear "read articles"
+	- [x] Clear "read articles"
 - [ ] **Blocked** Use upstream as canonical page if it ever becomes stable and fast
 	- [ ] **Stable**: Old links stop working on upstream. We break them intentionally, since this is a "daily news"  site, but upstream ought not to break. See [this link](https://app.beatrootnews.com/#article-5773) for eg.
 	- [ ] **Fast**: Current upstream is too slow. See [this report](https://pagespeed.web.dev/analysis/https-app-beatrootnews-com/scbmz1pf5r?form_factor=mobile).
