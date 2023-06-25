@@ -9,7 +9,6 @@ body {
   max-width: 550px;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-
 }
 
 main {
@@ -76,7 +75,7 @@ h2 {
 }
 
 .button:link,
-.button:visited {
+.button:visited, button, input[type=button] {
     background-color: #660033;
     color: white;
     border: 1px solid #660033;
@@ -127,4 +126,10 @@ details .trigger-warning {
 }
 details[open] .trigger-warning {
   display: none;
+}
+
+mark {
+  background: #ff0;
+  padding: 0px 2px;
+  color: #000;
 }

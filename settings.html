@@ -1,0 +1,16 @@
+---
+layout: article
+title: Settings
+permalink: /settings/
+# Not supported currently
+# https://github.com/jekyll/jekyll-seo-tag/issues/100
+noindex: true
+---
+
+<form>
+	<section>
+		<label for="highlight-words">Highlight Words (comma-separated):</label><br>
+		<textarea oninput="this.parentNode.dataset.value = this.value" rows="1" id="highlight-words" style="width:100%" rows=3></textarea>
+	</section>
+	<input type=button id="btn-settings-save" value=Save>
+</form>

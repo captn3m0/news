@@ -40,4 +40,30 @@ document.addEventListener('DOMContentLoaded', function () {
       detailsElement.classList.add('viewed');
     }
   });
+
+  // Set highlight words
+  if(hw = document.getElementById('highlight-words')) {
+    hw.value = (JSON.parse(localStorage.getItem("highlightWords"))||[]).join("\n");
+  }
+
+  // Save settings
+  if(document.getElementById('btn-settings-save')) {
+    document.getElementById('btn-settings-save').addEventListener('click', function (e) {
+      val = document.getElementById('highlight-words').value.split("\n").map(function(x){return x.trim()});
+      localStorage.setItem('highlightWords', JSON.stringify(val));
+      return false;
+    });
+  }
+
+  // Enable highlighting
+  if(words = localStorage.getItem('highlightWords')) {
+    var scriptTag = document.createElement('script');
+    scriptTag.setAttribute('src','/assets/mark.min.js');
+    scriptTag.async=scriptTag.defer = true;
+    document.body.appendChild(scriptTag);
+    scriptTag.onload = function() {
+      var markInstance = new Mark(document.querySelector("main"));
+      markInstance.mark(JSON.parse(words), {});
+    }
+  }
 });
