@@ -92,11 +92,14 @@ class BeatrootNews < Jekyll::Generator
       html = article['body_json']['blocks'].map{ |t| t['data']['text']}.join(" ")
       html = Sanitize.fragment(html, SANITIZE_CONFIG)
       topics = article['topic'].map { |topic| topic.split('-').first }
-      tw = nil
+      twt = nil
 
       if article['trigger_warning']
-        html = "<b>#{article['trigger_warning_text']}</b><br>" + html
-        tw = article['trigger_warning_text']
+        twt = article['trigger_warning_text']
+        unless twt.downcase.include? 'trigger'
+          twt = 'Trigger Warning: ' + twt
+        end
+        html = "<b>#{twt}</b><br>" + html
       end
 
       file.content = html
@@ -113,7 +116,7 @@ class BeatrootNews < Jekyll::Generator
         # We use 300 characters here
         # and the SEO plugin strips down to 200 with ellepsis
         "description" => Sanitize.fragment(html)[0...199] + "…",
-        "trigger_warning" => tw,
+        "trigger_warning" => twt,
         "syndicated" => syndicated?(article),
         "seo" => {
           "type" => "NewsArticle",
