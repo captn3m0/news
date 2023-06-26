@@ -12,11 +12,7 @@ layout: default
 <h2><a href="/{{topic}}/">{{topic | capitalize}}</a></h2>
 	{% for post in site.pages %}
 	{% if post.topics and post.topics.first == topic %}
-
-		{% unless post.syndicated %}
-		{% include_cached story.html story=post %}
-		{% endunless %}
-
+		{% include_cached story.html story=post heading_level=3%}
 	{%endif%}
 	{% endfor %}
 </div>

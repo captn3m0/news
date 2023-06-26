@@ -10,20 +10,9 @@ layout: default
 <p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time></p>
 
 {% for post in site.pages %}
-{% if post.topics contains page.topic %}
-<details data-hash="{{post.id}}-{{post.date | date: '%s'}}">
-	<summary>
-		<h2>
-			{% include_cached post-title.html trigger_warning=post.trigger_warning title=post.title %}
-		</h2>
-		<a class="topic-title" href="{{post.url}}">🔗</a>
-		{% if post.syndicated %}
-		<span title="Syndicated News">📡</span>
-		{%endif%}
-	</summary>
-<div class="details-content">{{post.content}}</div>
-</details>
-{%endif%}
+{% if post.topics and post.topics contains page.topic %}
+	{% include_cached story.html story=post heading_level="2" %}
+{% endif %}
 {% endfor %}
 
 </div> <!-- topic-container -->

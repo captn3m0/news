@@ -111,12 +111,24 @@ h6 {
   border-radius: 3px;
 }
 
+details > summary {
+  list-style-type: '🗞';;
+}
+
+details[data-syndicated="1"] > summary{
+  list-style-type: '📻';
+}
+
 details.viewed>summary {
   color: #999;
 }
 
 details .real-title {
   display: none;
+}
+
+details[open] > summary {
+  list-style-type: '📰';
 }
 details[open] .real-title {
   display: inline;

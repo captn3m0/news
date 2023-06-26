@@ -1,8 +1,8 @@
-<details data-hash="{{include.story.id}}-{{include.story.date | date: '%s'}}">
+<details data-hash="{{include.story.id}}-{{include.story.date | date: '%s'}}" data-syndicated={{include.story.syndicated|to_integer}}>
 	<summary>
-		<h3>
+		<h{{include.heading_level}}>
 			{% include_cached post-title.html trigger_warning=include.story.trigger_warning title=include.story.title %}
-		</h3>
+		</h{{include.heading_level}}>
 		{% if include.story.content.downcase contains "developing story" %}<span title="Developing Story">✍</span>{%endif%}
 	</summary>
 	<div class="details-content">{{include.story.content}}</div>

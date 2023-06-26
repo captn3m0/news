@@ -6,12 +6,10 @@ title: Roadmap
 
 ### In Progress
 - [ ] Drop empty sections in homepage
-- [x] Create a /settings page
-	- [ ] Show syndicated articles in home page (default OFF)
-	- [ ] Pick sections for home-page
-	- [ ] Font adjustments
+- [ ] **settings** Pick topics for home-page
 ### Planned
 
+- [ ] Font adjustments in settings
 - [ ] Check color accessibility for viewed-grey-color.
 - [ ] **Blocked** Use upstream as canonical page if it ever becomes stable and fast
 	- [ ] **Stable**: Old links stop working on upstream. We break them intentionally, since this is a "daily news"  site, but upstream ought not to break. See [this link](https://app.beatrootnews.com/#article-5773) for eg.
@@ -27,5 +25,8 @@ title: Roadmap
 - [x] Make "/" in bottom footer using CSS after
 - [x] Highlight words
 - [x] Clear "read articles"
+- [x] Create a /settings page
+- [x] Show all articles, and mark syndicated ones better
+- [x] Use better list icons
 
 See [/about](/about) as well, or [contact Nemo](https://captnemo.in/contact/) for any suggestions.

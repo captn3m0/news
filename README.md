@@ -12,11 +12,11 @@ This text-only version is unaffiliated with Beatroot News or Freemedia Interacti
 
 ## Curation Notes
 
-- The [home-page](/) only includes un-syndicated[^1] articles.
 - Only articles from today and yesterday are shown. 
+- Articles marked with 📻 are "syndicated" from an external media source[^1].
 - The design is based on [NPR's](http://text.npr.org/) text-only website.
 - Trigger Warnings are shown in bold, prefixed to the article text.
 - The content is updated every 30 minutes.
 - There are no trackers or ads.
 
-[^1]: Currently only PTI articles are filtered out.
+[^1]: List of sources considered as syndicated: PTI, Hindustan Times, Indian Express
