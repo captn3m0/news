@@ -96,4 +96,32 @@ document.addEventListener('DOMContentLoaded', function () {
       return false;
     });
   }
+
+  // Set checkboxes from local storage in settings.html
+  let x = localStorage.getItem('hiddenTopics');
+  let hiddenTopics = x ? JSON.parse(x) : [];
+  for (let topic of hiddenTopics) {
+    let topicCheckbox = document.querySelector(`#checkbox-hide-${topic}`);
+    if (topicCheckbox) {
+      topicCheckbox.checked = true;
+    }
+  }
+
+  // On clicking checkbox, add it to localstorage
+  let checkboxes = document.querySelectorAll('.checkbox-hide');
+  for (let checkbox of checkboxes) {
+    checkbox.addEventListener('click', function (e) {
+      let topic = e.target.value;
+      let x = JSON.parse(localStorage.getItem('hiddenTopics'));
+      hiddenTopics = new Set(x)
+      
+      if (e.target.checked) {
+        hiddenTopics.add(topic);
+      } else {
+        hiddenTopics.delete(topic);
+      }
+      localStorage.setItem('hiddenTopics', JSON.stringify(Array.from(hiddenTopics)));
+    });
+  }
+
 });

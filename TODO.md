@@ -5,17 +5,18 @@ title: Roadmap
 ---
 
 ### In Progress
-- [ ] Drop empty sections in homepage
-- [ ] **settings** Pick topics for home-page
+
 ### Planned
 
-- [ ] Font adjustments in settings
+- [ ] Font adjustments in settings.
+- [ ] Custom trigger words in settings.
 - [ ] Check color accessibility for viewed-grey-color.
 - [ ] **Blocked** Use upstream as canonical page if it ever becomes stable and fast
 	- [ ] **Stable**: Old links stop working on upstream. We break them intentionally, since this is a "daily news"  site, but upstream ought not to break. See [this link](https://app.beatrootnews.com/#article-5773) for eg.
 	- [ ] **Fast**: Current upstream is too slow. See [this report](https://pagespeed.web.dev/analysis/https-app-beatrootnews-com/scbmz1pf5r?form_factor=mobile).
 
 ### Completed
+- [x] Pick topics for home-page
 - [x] Fix top margin/whitespace in topic pages
 - [x] Grey out read articles. Keep track using localstorage.
 - [x] Un-grey articles that were updated. Use combination of article_id + last_updated
