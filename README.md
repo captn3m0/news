@@ -4,9 +4,11 @@ title: About This Site
 permalink: /about/
 ---
 
-This site is a text-only minimal version of [Beatroot News](https://app.beatrootnews.com/), a new news app by Freemedia Interactive Private Limited.
+This site is a text-only minimal version of [Beatroot News](https://app.beatrootnews.com/) 
+[[iOS](https://apps.apple.com/in/app/beatroot-news/id1618735924)], 
+[[Android](https://play.google.com/store/apps/details?id=com.beatrootnews.app)], a new news app by Freemedia Interactive Private Limited.
 
-It is maintained by [Nemo](https://github.com/captn3m0), and is meant as a minimal news website that you can check once a day.
+It is maintained by [Nemo](https://github.com/captn3m0), and is meant as a minimal indian news website that you can check once a day.
 
 This text-only version is unaffiliated with Beatroot News or Freemedia Interactive Private Limited.
 
@@ -18,5 +20,10 @@ This text-only version is unaffiliated with Beatroot News or Freemedia Interacti
 - Trigger Warnings are shown in bold, prefixed to the article text.
 - The content is updated every 30 minutes.
 - There are no trackers or ads.
+
+## Configuration
+- Read articles are marked in grey. You can reset read articles in Settings.
+- Highlight words can be configured in settings, and will be highlighted across all news articles and headlines.
+- You can hide specific topics under settings.
 
 [^1]: List of sources considered as syndicated: PTI, Hindustan Times, Indian Express

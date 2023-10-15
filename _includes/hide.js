@@ -6,5 +6,4 @@ innerStyle = "";
 for (let topic of hiddenTopics) {
   innerStyle += `.topic-${topic} {display:none} `;
 }
-console.log(innerStyle)
-document.head.insertAdjacentHTML("beforeend", `<style>${innerStyle}</style>`)
+document.head.insertAdjacentHTML("beforeend", `<style id="hidden-style">${innerStyle}</style>`)

@@ -145,3 +145,7 @@ mark {
   padding: 0px 2px;
   color: #000;
 }
+
+.hidden-notifier {
+  display: none;
+}

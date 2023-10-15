@@ -100,11 +100,25 @@ document.addEventListener('DOMContentLoaded', function () {
   // Set checkboxes from local storage in settings.html
   let x = localStorage.getItem('hiddenTopics');
   let hiddenTopics = x ? JSON.parse(x) : [];
+
+  // Set hidden count in the button and show it.
+  if (hiddenTopics && document.getElementById("hidden-notifier")) {
+    document.getElementById("hidden-count").innerText = hiddenTopics.length;
+    document.getElementById("hidden-notifier").style.display = "inline";
+  }
   for (let topic of hiddenTopics) {
     let topicCheckbox = document.querySelector(`#checkbox-hide-${topic}`);
     if (topicCheckbox) {
       topicCheckbox.checked = true;
     }
+  }
+
+  // Show hidden elements on clicking the button
+  if (document.getElementById("hidden-notifier")) {
+    document.getElementById("hidden-notifier").addEventListener('click', function (e) {
+      document.getElementById('hidden-style').remove();
+      document.getElementById("hidden-notifier").style.display = "none";
+    });
   }
 
   // On clicking checkbox, add it to localstorage
