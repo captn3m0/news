@@ -54,6 +54,7 @@ h2 {
 
 .topic-container {
   margin-top: 20px;
+  margin-left: 10px;
 }
 .topic-list {
   display: inline-block;
@@ -91,6 +92,10 @@ h2 {
     color: white;
 }
 
+footer>nav>ul{
+  padding-left: 0;
+}
+
 .lower-nav-container li {
   margin-left: 0;
   display: inline;
@@ -111,12 +116,15 @@ h6 {
   border-radius: 3px;
 }
 
-details > summary {
-  list-style-type: '🗞';;
+details[data-syndicated="1"]>summary::before{
+  content: "❖";
+  left: -35px;
+  position: relative;
 }
 
-details[data-syndicated="1"] > summary{
-  list-style-type: '📻';
+details[data-syndicated="1"] h3{
+  left: -1rem;
+  position: relative;
 }
 
 details.viewed>summary {
@@ -127,9 +135,6 @@ details .real-title {
   display: none;
 }
 
-details[open] > summary {
-  list-style-type: '📰';
-}
 details[open] .real-title {
   display: inline;
 }
