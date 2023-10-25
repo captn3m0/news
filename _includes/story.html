@@ -5,5 +5,12 @@
 		</h{{include.heading_level}}>
 		{% if include.story.content.downcase contains "developing story" %}<span title="Developing Story">✍</span>{%endif%}
 	</summary>
-	<div class="details-content">{{include.story.content}}</div>
+	<div class="details-content">{{include.story.content}}
+
+	{% if include.story.media_link %}
+	<audio controls class="details-audio" crossorigin=anonymous preload=none src="{{include.story.media_link}}">
+		<a href="{{include.story.media_link}}">Download</a>
+	</audio>
+	{% endif %}
+	</div>
 </details>

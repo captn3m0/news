@@ -126,6 +126,7 @@ class BeatrootNews < Jekyll::Generator
           ],
           "date_modified"     => date
         },
+        "media_link" => article['media_link'] ? article['media_link'] : nil,
         # This is currently disabled because the page doesn't load in desktop
         # Or rather doesn't load at all for old links.
         # "canonical_url" => "https://app.beatrootnews.com/#article-#{article['id']}"

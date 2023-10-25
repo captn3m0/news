@@ -16,6 +16,7 @@ title: Roadmap
 	- [ ] **Fast**: Current upstream is too slow. See [this report](https://pagespeed.web.dev/analysis/https-app-beatrootnews-com/scbmz1pf5r?form_factor=mobile).
 
 ### Completed
+- [x] Added podcast player
 - [x] Pick topics for home-page
 - [x] Fix top margin/whitespace in topic pages
 - [x] Grey out read articles. Keep track using localstorage.
