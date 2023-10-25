@@ -11,9 +11,11 @@
 	<audio controls class="details-audio" crossorigin=anonymous preload=none src="{{include.story.media_link}}">
 		<a href="{{include.story.media_link}}">Download</a>
 	</audio>
-	{% endif %}
-
-	<p><a href="https://news.google.com/search?q={{include.story.title | uri_escape}}&hl=en-IN&gl=IN&ceid=IN%3Aen">Search on Google News</a> | 
+	{% else %}
+	<p>
+		<a href="https://news.google.com/search?q={{include.story.title | uri_escape}}&hl=en-IN&gl=IN&ceid=IN%3Aen">Search on Google News</a> | 
 		<a href="{{site.url}}/{{include.story.id}}">Link</a>
+	</p>
+	{% endif %}
 	</div>
 </details>
