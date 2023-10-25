@@ -16,15 +16,16 @@ title: Roadmap
 	- [ ] **Fast**: Current upstream is too slow. See [this report](https://pagespeed.web.dev/analysis/https-app-beatrootnews-com/scbmz1pf5r?form_factor=mobile).
 
 ### Completed
+- [x] Mark syndicated articles in the header separately
+- [x] Link to Google News for further research
+- [x] Provide a share link
 - [x] Added podcast player
-- [x] Pick topics for home-page
-- [x] Fix top margin/whitespace in topic pages
+- [x] Hide chosen topics for home-page
 - [x] Grey out read articles. Keep track using localstorage.
 - [x] Un-grey articles that were updated. Use combination of article_id + last_updated
 - [x] Redirect 404 articles to app.beatrootnews. **Note**: Upstream links are also broken currently, so we need something better.
 - [x] Add sign for "developing story"
 - [x] Fix tap target size in bottom footer.
-- [x] Make "/" in bottom footer using CSS after
 - [x] Highlight words
 - [x] Clear "read articles"
 - [x] Create a /settings page
