@@ -1,21 +1,27 @@
+<div style="position:relative">
 <details data-hash="{{include.story.id}}-{{include.story.date | date: '%s'}}" data-syndicated={{include.story.syndicated|to_integer}}>
 	<summary>
-		<h{{include.heading_level}}>
+		<h{{include.heading_level}} class="story-heading">
 			{% include_cached post-title.html trigger_warning=include.story.trigger_warning title=include.story.title %}
 		</h{{include.heading_level}}>
 		{% if include.story.content.downcase contains "developing story" %}<span title="Developing Story">✍</span>{%endif%}
 	</summary>
-	<div class="details-content">{{include.story.content}}
+	<div class="details-content">
+
+	<div class="story-content">
+	{{include.story.content}}
+	</div>
 
 	{% if include.story.media_link %}
 	<audio controls class="details-audio" crossorigin=anonymous preload=none src="{{include.story.media_link}}">
 		<a href="{{include.story.media_link}}">Download</a>
 	</audio>
 	{% else %}
-	<p>
+	<p class="story-links">
 		<a href="https://news.google.com/search?q={{include.story.title | uri_escape}}&hl=en-IN&gl=IN&ceid=IN%3Aen">Search on Google News</a> | 
 		<a href="{{site.url}}/{{include.story.id}}">Link</a>
 	</p>
 	{% endif %}
 	</div>
 </details>
+</div>

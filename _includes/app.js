@@ -79,7 +79,10 @@ document.addEventListener('DOMContentLoaded', function () {
     scriptTag.async=scriptTag.defer = true;
     document.body.appendChild(scriptTag);
     scriptTag.onload = function() {
-      var markInstance = new Mark(document.querySelector("main"));
+      var markInstance = new Mark(
+        [document.querySelector(".story-content"),
+        document.querySelector(".story-heading")]
+      );
       markInstance.mark(JSON.parse(words), {});
     }
   }
@@ -118,6 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("hidden-notifier").addEventListener('click', function (e) {
       document.getElementById('hidden-style').remove();
       document.getElementById("hidden-notifier").style.display = "none";
+      // Scroll to top of page
+      window.scroll({top: 0, behavior: "smooth"})
     });
   }
 

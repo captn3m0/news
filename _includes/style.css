@@ -116,15 +116,14 @@ h6 {
   border-radius: 3px;
 }
 
-details[data-syndicated="1"]>summary::before{
-  content: "❖";
-  left: -35px;
-  position: relative;
+.story-links {
+  margin: 5px 10px 5px 0px;
 }
 
-details[data-syndicated="1"] h3{
-  left: -1rem;
-  position: relative;
+details[data-syndicated="1"]>summary::before{
+  content: "❖";
+  left: -1.5rem;
+  position: absolute;
 }
 
 details.viewed>summary {
@@ -143,6 +142,10 @@ details .trigger-warning {
 }
 details[open] .trigger-warning {
   display: none;
+}
+
+details[open] .story-links {
+  text-align: right;
 }
 
 mark {
