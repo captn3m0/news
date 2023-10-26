@@ -13,7 +13,7 @@
 	</div>
 
 	{% if include.story.media_link %}
-	<audio controls class="details-audio" crossorigin=anonymous preload=none src="{{include.story.media_link}}">
+	<audio controls style="width:100%" class="details-audio" preload=none src="{{include.story.media_link}}">
 		<a href="{{include.story.media_link}}">Download</a>
 	</audio>
 	{% else %}
