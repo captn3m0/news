@@ -15,7 +15,7 @@ This text-only version is unaffiliated with Beatroot News or Freemedia Interacti
 ## Curation Notes
 
 - Only articles from today and yesterday are shown. 
-- Articles marked with 📻 are "syndicated" from an external media source[^1].
+- Articles marked with ❖ are "syndicated" from an external media source[^1].
 - The design is based on [NPR's](http://text.npr.org/) text-only website.
 - Trigger Warnings are shown in bold, prefixed to the article text.
 - The content is updated every 30 minutes.
