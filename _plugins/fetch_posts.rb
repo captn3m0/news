@@ -95,7 +95,7 @@ class BeatrootNews < Jekyll::Generator
       twt = nil
 
       if article['trigger_warning']
-        twt = article['trigger_warning_text']
+        twt = article['trigger_warning_text'] || 'Trigger Warning'
         unless twt.downcase.include? 'trigger'
           twt = 'Trigger Warning: ' + twt
         end
