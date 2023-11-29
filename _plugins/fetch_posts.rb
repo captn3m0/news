@@ -82,6 +82,7 @@ class BeatrootNews < Jekyll::Generator
 
   def make_page(article)
     return nil if article['topic'].nil?
+    return nil if article['body_json']['blocks'].empty?
     n = DateTime.new
     now = DateTime.new(n.year, n.month, n.day, 23, 59, 59, "+0530")
     date = timestamp(article['updated_on'])
