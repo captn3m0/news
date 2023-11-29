@@ -27,7 +27,8 @@ class BeatrootNews < Jekyll::Generator
   safe true
   priority :highest
 
-  SOURCE_URL = "https://beatrootnews.com/api.php/article?page%5Blimit%5D=60&sort=-publishing_date"
+  MAX_POSTS = 200
+  SOURCE_URL = "https://beatrootnews.com/api.php/article?page%5Blimit%5D=#{MAX_POSTS}&sort=-publishing_date"
 
   # Make a request to SOURCE_URL, and return the parsed JSON
   def get_content
@@ -38,6 +39,7 @@ class BeatrootNews < Jekyll::Generator
 
   # Main plugin action, called by Jekyll-core
   def generate(site)
+    count = 0
     @site = site
     topics = Set.new
     get_content.each do |article|
@@ -45,6 +47,7 @@ class BeatrootNews < Jekyll::Generator
       if page
         site.pages << page 
         page['topics'].each { |t| topics.add(t) }
+        count+=1
       end
     end
 
@@ -52,6 +55,7 @@ class BeatrootNews < Jekyll::Generator
       @site.pages << make_topic_page(topic)
     end
     site.config['topics'] = topics.to_a.sort
+    Jekyll.logger.info "BeatrootNews:", "Generated #{count} pages."
   end
 
   private
