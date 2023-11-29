@@ -39,23 +39,29 @@ class BeatrootNews < Jekyll::Generator
 
   # Main plugin action, called by Jekyll-core
   def generate(site)
-    count = 0
     @site = site
-    topics = Set.new
+    site.data['topics'] = Set.new site.data['topics']
+    count = 0
     get_content.each do |article|
       page = make_page(article['attributes']['modules'])
       if page
         site.pages << page 
-        page['topics'].each { |t| topics.add(t) }
+        page['topics'].each do |topic|
+          unless site.data['topics'].include? topic
+            site.data['topics'] << topic
+            Jekyll.logger.warn "News:", "New Topic #{topic}"
+          end
+        end
         count+=1
       end
     end
 
-    topics.each do |topic|
+    site.data['topics'].each do |topic|
       @site.pages << make_topic_page(topic)
     end
-    site.config['topics'] = topics.to_a.sort
-    Jekyll.logger.info "BeatrootNews:", "Generated #{count} pages."
+
+    site.data['topics'] = site.data['topics'].to_a.sort
+    Jekyll.logger.info "News:", "Generated #{count} pages"
   end
 
   private
