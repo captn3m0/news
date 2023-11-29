@@ -80,9 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.appendChild(scriptTag);
     scriptTag.onload = function() {
       var markInstance = new Mark(
-        [document.querySelector(".story-content"),
-        document.querySelector(".story-heading")]
+        Array.from(document.querySelectorAll(".story-content"))
+        .concat(Array.from(document.querySelectorAll(".story-heading")))
       );
+      console.log(words)
       markInstance.mark(JSON.parse(words), {});
     }
   }
