@@ -27,7 +27,7 @@ class BeatrootNews < Jekyll::Generator
   safe true
   priority :highest
 
-  MAX_POSTS = 200
+  MAX_POSTS = 150
   SOURCE_URL = "https://beatrootnews.com/api.php/article?page%5Blimit%5D=#{MAX_POSTS}&sort=-publishing_date"
 
   # Make a request to SOURCE_URL, and return the parsed JSON
@@ -92,11 +92,12 @@ class BeatrootNews < Jekyll::Generator
   def make_page(article)
     return nil if article['topic'].nil?
     return nil if article['body_json']['blocks'].empty?
-    n = DateTime.new
+    n = DateTime.now
     now = DateTime.new(n.year, n.month, n.day, 23, 59, 59, "+0530")
     date = timestamp(article['updated_on'])
     days_ago = (now - date).floor
-    return nil if days_ago > 2
+    # We only return news for today(0) or yesterday(1)
+    return nil if days_ago > 1
 
     PageWithoutAFile.new(@site, __dir__, article['id'], "index.html").tap do |file|
       html = article['body_json']['blocks'].map{ |t| t['data']['text']}.join(" ")
