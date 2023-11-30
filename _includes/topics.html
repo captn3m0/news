@@ -1,5 +1,5 @@
 <nav>
 <ul>
-    {% for topic in site.data.topics %}<li class="topic-list"><a href="/{{ topic}}/">{{topic | capitalize|strip}}</a></li>{% endfor %}
+    {% for T in site.data.topics %}{%if T[1]>0%}<li class="topic-list"><a href="/{{ T[0]}}/">{{T[0] | capitalize|strip}}</a></li>{%endif%}{% endfor %}
 </ul>
 </nav>

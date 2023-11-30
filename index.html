@@ -7,23 +7,17 @@ layout: default
 <h1 class="topic-heading">{{page.title}}</h1>
 <div class="hr-line"></div>
 <p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time></p>
-{% for topic in site.data.topics %}
-{% assign post_count = 0 %}
-{% capture h %}
-
+{% for T in site.data.topics %}
+{% assign post_count = T[1] %}
+{% if post_count > 0 %}
 <div class="topic-{{topic|downcase}}">
-<h2><a href="/{{topic}}/">{{topic | capitalize}}</a></h2>
+<h2><a href="/{{T[0]}}/">{{T[0] | capitalize}}</a></h2>
 	{% for post in site.pages %}
-	{% if post.topics and post.topics.first == topic %}
+	{% if post.topics and post.topics.first == T[0] %}
 		{% include_cached story.html story=post heading_level=3%}
-		{% assign post_count = post_count | plus: 1 %}
 	{% endif %}
 	{% endfor %}
 </div>
-{% endcapture %}
-
-{% if post_count > 0 %}
-{{h}}
 {% endif %}
 
 {% endfor %}
