@@ -30,11 +30,14 @@ class BeatrootNews < Jekyll::Generator
   MAX_POSTS = 150
   SOURCE_URL = "https://beatrootnews.com/api.php/article?page%5Blimit%5D=#{MAX_POSTS}&sort=-publishing_date"
 
-  # Make a request to SOURCE_URL, and return the parsed JSON
   def get_content
-    uri = URI.parse(SOURCE_URL)
-    response = Net::HTTP.get_response(uri)
-    JSON.parse(response.body)['data']
+    unless Jekyll.env == 'production'
+      body = File.read '_development/fixture.json'
+    else
+      uri = URI.parse(SOURCE_URL)
+      body = Net::HTTP.get_response(uri).body
+    end
+    JSON.parse(body)['data']
   end
 
   # Main plugin action, called by Jekyll-core
