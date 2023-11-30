@@ -86,8 +86,6 @@ class BeatrootNews < Jekyll::Generator
     end
   end
 
-  # Generates contents for a file
-
   def timestamp(ts)
     d = Time.at(ts.to_i).to_datetime
     d.new_offset("+0530")
@@ -125,7 +123,7 @@ class BeatrootNews < Jekyll::Generator
       file.content = html
       
       file.data.merge!(
-        'sources'  => article['sources'],
+        'sources'  => article['sources'].reject(&:empty?),
         "date"     => date,
         "id"       => article['id'],
         "slug"     => article['slug'],
