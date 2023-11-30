@@ -20,7 +20,7 @@ noindex: true
 	<h2>Hide These Topics</h2>
 	<fieldset>
 		<legend>Topics are only hidden on the home screen</legend>
-	{% for topic in site.topics %}
+	{% for topic in site.data.topics %}
 
 	<label for="checkbox-hide-{{topic}}">
 		<input type=checkbox class="checkbox-hide" id="checkbox-hide-{{topic}}" value="{{topic}}">

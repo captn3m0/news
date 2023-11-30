@@ -9,10 +9,16 @@ layout: default
 <div class="hr-line"></div>
 <p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time></p>
 
+{% assign post_count = 1 %}
 {% for post in site.pages %}
 {% if post.topics and post.topics contains page.topic %}
 	{% include_cached story.html story=post heading_level="2" %}
+	{% assign post_count = post_count | plus: 1 %}
 {% endif %}
 {% endfor %}
+
+{% if post_count == 1 %}
+	<p class="topic-empty">No articles today under {{page.title}}</p>
+{% endif %}
 
 </div> <!-- topic-container -->
