@@ -131,6 +131,7 @@ class BeatrootNews < Jekyll::Generator
         "layout"   => 'article',
         "topics"   => topics,
         "days_ago" => days_ago,
+        "day" => days_ago == 0 ? "today" : "yesterday",
         # We use 300 characters here
         # and the SEO plugin strips down to 200 with ellepsis
         "description" => Sanitize.fragment(html)[0...199] + "…",

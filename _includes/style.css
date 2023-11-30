@@ -113,17 +113,40 @@ h6 {
 .details-content {
   font-size: smaller;
   border: 1px dashed;
-  border-radius: 3px;
+  border-radius: 3px 0 0 3px;
+  /* No border on right, since we have date line */
+  border-right: 0px;
 }
 
 .story-links {
   margin: 5px 10px 5px 0px;
 }
 
-details[data-syndicated="1"]>summary::before{
-  content: "❖";
-  left: -1.5rem;
+details>summary::before{
+  left: -1rem;
   position: absolute;
+  font-family: monospace;
+  margin-top: 0.20rem;
+}
+
+details[data-syndicated="1"][data-day="yesterday"]>summary::before{
+  content: "❖";
+}
+
+/*details[data-syndicated="1"][data-day="today"]>summary::before{
+  content: "⨂";
+}details[data-syndicated="0"][data-day="yesterday"]>summary::before{
+  content: " ";
+}details[data-syndicated="0"][data-day="today"]>summary::before{
+  content: "◯";
+}*/
+
+details[data-day="yesterday"]>summary, details[data-day="yesterday"][open]>.details-content{
+  box-shadow: 2px 0px 0px 0px #37001c44;
+}
+
+details[data-day="today"]>summary, details[data-day="today"][open]>.details-content{
+  box-shadow: 2px 0px 0px 0px #37001c;
 }
 
 details.viewed>summary {
