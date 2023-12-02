@@ -2,7 +2,6 @@
 title: "Beatroot News: Text-only"
 layout: default
 ---
-<p></p>
 <div class="topic-container">
 <h1 class="topic-heading">{{page.title}}</h1>
 <div class="hr-line"></div>
@@ -10,7 +9,7 @@ layout: default
 {% for T in site.data.topics %}
 {% assign post_count = T[1] %}
 {% if post_count > 0 %}
-<div class="topic-{{topic|downcase}}">
+<div class="topic-{{T[0]|downcase}}">
 <h2><a href="/{{T[0]}}/">{{T[0] | capitalize}}</a></h2>
 	{% for post in site.pages %}
 	{% if post.topics and post.topics.first == T[0] %}
@@ -22,8 +21,8 @@ layout: default
 
 {% endfor %}
 
-<br><button id="hidden-notifier">Show <span id="hidden-count"></span> hidden topics</button>
+<br><button id="hidden-notifier">Show <span id="hidden-count"></span> hidden topic(s)</button>
 
 <p>❖ - Syndicated news, primarily from PTI</p>
-<p>Dark/Light border on the right is for articles from today/yesterday</p>
+<p>Dark/Light border on the right denotes articles from today/yesterday</p>
 </div>
