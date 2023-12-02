@@ -30,6 +30,17 @@ class BeatrootNews < Jekyll::Generator
   MAX_POSTS = 150
   SOURCE_URL = "https://beatrootnews.com/api.php/article?page%5Blimit%5D=#{MAX_POSTS}&sort=-publishing_date"
 
+  def fix_dates_for_dev(data)
+    # Calculate number of days since 2023-11-30, the date of our fixture
+    days_since = (DateTime.now - DateTime.new(2023, 11, 30)).floor
+    seconds_to_add = days_since * 86400
+    data.each do |article|
+      article['attributes']['modules']['updated_on'] = article['attributes']['modules']['updated_on'].to_i + seconds_to_add
+    end
+
+    data
+  end
+
   def get_content
     unless Jekyll.env == 'production'
       body = File.read '_development/fixture.json'
@@ -37,7 +48,10 @@ class BeatrootNews < Jekyll::Generator
       uri = URI.parse(SOURCE_URL)
       body = Net::HTTP.get_response(uri).body
     end
-    JSON.parse(body)['data']
+    data = JSON.parse(body)['data']
+
+    data = fix_dates_for_dev(data) unless Jekyll.env == 'production'
+    data
   end
 
   # Main plugin action, called by Jekyll-core
