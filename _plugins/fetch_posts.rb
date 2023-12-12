@@ -41,15 +41,32 @@ class BeatrootNews < Jekyll::Generator
     data
   end
 
+  def make_request(url, retries=5)
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.read_timeout = 10
+    http.open_timeout = 10
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    if response.code == "200"
+      return response.body
+    elsif retries > 0
+      Jekyll.logger.warn "News:", "Retrying #{url} (#{retries} retries left)"
+      return make_request(url, retries - 1)
+    else
+      Jekyll.logger.error "News:", "Failed to fetch #{url}"
+      raise "Failed to fetch news after 5 attempts"
+    end
+  end
+
   def get_content
     unless Jekyll.env == 'production'
       body = File.read '_development/fixture.json'
     else
-      uri = URI.parse(SOURCE_URL)
-      body = Net::HTTP.get_response(uri).body
+      body = make_request(SOURCE_URL, 5)
     end
     data = JSON.parse(body)['data']
-
     data = fix_dates_for_dev(data) unless Jekyll.env == 'production'
     data
   end
