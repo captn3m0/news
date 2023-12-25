@@ -129,6 +129,18 @@ details>summary::before{
   margin-top: 0.20rem;
 }
 
+details>summary>h3:hover {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #660033;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.1em;
+}
+
+details.viewed>summary>h3:hover {
+  text-decoration-color: #66003344;
+}
+
 details[data-syndicated="1"][data-day="yesterday"]>summary::before{
   content: "❖";
 }
