@@ -12,6 +12,7 @@ timezone: Asia/Kolkata
 plugins:
   - jekyll-include-cache
   - jekyll-seo-tag
+  - jemoji
 env: development
 webmaster_verifications:
   google: sR2qUrWTIJvtOlBP4RwHSavUoICUZaIGYLdxuylnSc4

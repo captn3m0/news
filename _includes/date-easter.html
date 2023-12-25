@@ -1,0 +1,8 @@
+{% capture current_date %}{{ "now" | date: "%m-%d" }}{% endcapture %}
+{% if current_date == "12-25" %}
+  :christmas_tree:
+{% elsif current_date == "12-29" %}
+  :birthday:
+{% elsif current_date == "12-31" or current_date == "01-01" %}
+  :confetti_ball:
+{% endif %}

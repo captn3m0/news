@@ -11,6 +11,7 @@ layout: default
       <h1 class="story-title">{{page.title | strip}}</h1>
         {% if page.sources%}<p>{{page.sources | join: " "}}</p>{%endif%}
         <time datetime="{{page.date | date:'%FT%T%:z'}}">{{page.date | date: "%A, %b %e %Y"}}</time>
+        {% include date-easter.html %}
     </div>
     <div class="hr-line"></div>
 

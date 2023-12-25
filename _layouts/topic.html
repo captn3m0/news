@@ -7,7 +7,10 @@ layout: default
 <div class="topic-container">
 <h1 class="topic-heading">{{page.title | capitalize  | strip}}</h1>
 <div class="hr-line"></div>
-<p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time></p>
+<p class="topic-date">
+	<time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time>
+	{% include date-easter.html %}
+</p>
 
 {% if page.article_count == 0 %}
 	<p class="topic-empty">No articles today under {{page.title}}</p>
