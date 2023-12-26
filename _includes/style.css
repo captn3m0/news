@@ -133,6 +133,17 @@ details[data-syndicated="1"][data-day="yesterday"]>summary::before{
   content: "❖";
 }
 
+.quiet::before{
+  content: "[";
+}
+
+.quiet {
+  color: darkgoldenrod;
+}
+.quiet::after{
+  content: "]";
+}
+
 /*details[data-syndicated="1"][data-day="today"]>summary::before{
   content: "⨂";
 }details[data-syndicated="0"][data-day="yesterday"]>summary::before{
@@ -179,4 +190,10 @@ mark {
 
 .hidden-notifier {
   display: none;
+}
+
+.emoji-representation {
+  display: inline;
+  text-decoration: none;
+  font-style: normal;
 }

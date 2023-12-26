@@ -5,9 +5,9 @@ layout: default
 <div class="topic-container">
 <h1 class="topic-heading">{{page.title}}</h1>
 <div class="hr-line"></div>
-<p class="topic-date"><time datetime="{{site.time | date: '%y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time>
+<div class="topic-date"><time datetime="{{site.time | date: '%Y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time>
 {% include date-easter.html %}
-</p>
+</div>
 {% for T in site.data.topics %}
 {% assign post_count = T[1] %}
 {% if post_count > 0 %}

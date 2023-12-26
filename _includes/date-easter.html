@@ -1,8 +1,20 @@
+{% assign S=  site.data.emoji_every_day.emoji %}
 {% capture current_date %}{{ "now" | date: "%m-%d" }}{% endcapture %}
-{% if current_date == "12-25" %}
-  :christmas_tree:
-{% elsif current_date == "12-29" %}
-  :birthday:
-{% elsif current_date == "12-31" or current_date == "01-01" %}
-  :confetti_ball:
-{% endif %}
+{% capture current_date_with_year %}{{ "now" | date: "%Y-%m-%d" }}{% endcapture %}
+<div class="emoji-representation">
+{% for E in S[current_date] %}
+  {% if E.link %}
+  <a href="{{E.link}}" title="{{E.day_name}}">{{E.emoji}}</a>
+  {% else %}
+  <span title="{{E.day_name}}">{{E.emoji}}</span>
+  {% endif %}
+{% endfor %}
+
+{% for E in S[current_date_with_year] %}
+  {% if E.link %}
+  <a href="{{E.link}}" title="{{E.day_name}}">{{E.emoji}}</a>
+  {% else %}
+  <span title="{{E.day_name}}">{{E.emoji}}</span>
+  {% endif %}
+{% endfor %}
+</div>
