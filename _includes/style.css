@@ -151,19 +151,11 @@ details[data-syndicated="1"][data-day="yesterday"]>summary::before{
   content: "]";
 }
 
-/*details[data-syndicated="1"][data-day="today"]>summary::before{
-  content: "⨂";
-}details[data-syndicated="0"][data-day="yesterday"]>summary::before{
-  content: " ";
-}details[data-syndicated="0"][data-day="today"]>summary::before{
-  content: "◯";
-}*/
-
-details[data-day="yesterday"]>summary, details[data-day="yesterday"][open]>.details-content{
+.detailswrapper:has(details[data-day="yesterday"]>summary), .detailswrapper:has(details[data-day="yesterday"][open]>.details-content){
   box-shadow: 2px 0px 0px 0px #37001c44;
 }
 
-details[data-day="today"]>summary, details[data-day="today"][open]>.details-content{
+.detailswrapper:has(details[data-day="today"]>summary), .detailswrapper:has(details[data-day="today"][open]>.details-content){
   box-shadow: 2px 0px 0px 0px #37001c;
 }
 
