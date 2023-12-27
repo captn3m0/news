@@ -5,13 +5,11 @@ layout: default
 <div class="topic-container">
 <h1 class="topic-heading">{{page.title}}</h1>
 <div class="hr-line"></div>
-<div class="topic-date"><time datetime="{{site.time | date: '%Y-%m-%d'}}">{{site.time | date: "%A, %b, %e, %Y"}}</time>
-{% include date-easter.html %}
-</div>
+{% include date.html %}
 {% for T in site.data.topics %}
 {% assign post_count = T[1] %}
 {% if post_count > 0 %}
-<div class="topic-{{T[0]|downcase}}">
+<div class="topic-{{T[0]|downcase}} news-topic">
 <h2><a href="/{{T[0]}}/">{{T[0] | capitalize}}</a></h2>
 	{% for post in site.pages %}
 	{% if post.topics and post.topics.first == T[0] %}

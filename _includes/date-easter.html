@@ -4,7 +4,7 @@
 <div class="emoji-representation">
 {% for E in S[current_date] %}
   {% if E.link %}
-  <a href="{{E.link}}" title="{{E.day_name}}">{{E.emoji}}</a>
+  <a target=_blank href="{{E.link}}" title="{{E.day_name}}">{{E.emoji}}</a>
   {% else %}
   <span title="{{E.day_name}}">{{E.emoji}}</span>
   {% endif %}
@@ -12,7 +12,7 @@
 
 {% for E in S[current_date_with_year] %}
   {% if E.link %}
-  <a href="{{E.link}}" title="{{E.day_name}}">{{E.emoji}}</a>
+  <a target=_blank href="{{E.link}}" title="{{E.day_name}}">{{E.emoji}}</a>
   {% else %}
   <span title="{{E.day_name}}">{{E.emoji}}</span>
   {% endif %}

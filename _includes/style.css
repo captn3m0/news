@@ -192,7 +192,7 @@ mark {
   display: none;
 }
 
-.emoji-representation {
+.emoji-representation, .emoji-representation>a{
   display: inline;
   text-decoration: none;
   font-style: normal;
