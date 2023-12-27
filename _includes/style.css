@@ -213,3 +213,13 @@ details summary:focus-visible {
 details.viewed summary:focus-visible {
   text-decoration-color: #66003344;
 }
+
+
+kbd{
+  font-family: monospace;
+  border: 1px solid #660033;
+  border-radius: 3px;
+  padding: 0px 2px;
+  margin: 0px 2px;
+  background: #eee;
+}
