@@ -15,6 +15,13 @@ main {
   margin-bottom: 20px;
 }
 
+details summary {
+  cursor: pointer;
+  padding-bottom: 0.4em;
+}
+details summary > * {
+  display: inline;
+}
 summary>h3, summary>h2 {
   display: inline;
   font-weight: normal;
@@ -196,4 +203,21 @@ mark {
   display: inline;
   text-decoration: none;
   font-style: normal;
+}
+
+details {
+  padding-bottom: 0.4em;
+}
+
+details summary:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #660033;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.1em;
+}
+
+details.viewed summary:focus-visible {
+  text-decoration-color: #66003344;
 }
