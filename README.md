@@ -27,4 +27,14 @@ This text-only version is unaffiliated with Beatroot News or Freemedia Interacti
 - Highlight words can be configured in settings, and will be highlighted across all news articles and headlines.
 - You can hide specific topics under settings.
 
+## Donate
+
+The project is open-source, and donations are welcome:
+
+- https://ko-fi.com/captn3m0
+- https://liberapay.com/captn3m0
+- https://github.com/sponsors/captn3m0
+
+Alternatively, please donate to the Internet Freedom Foundation: https://internetfreedom.in/donate/
+
 [^1]: List of sources considered as syndicated: PTI, Hindustan Times, Indian Express
