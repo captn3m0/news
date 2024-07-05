@@ -17,8 +17,11 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
+      # We automatically merge all submodules and github actions updates.
+      # since we use fairly well-trusted actions (owned by github/ruby)
+      # and the git-submodule (emoji-every-day) is also trusted.
       - name: Enable auto-merge for Dependabot PRs for release data
-        if: ${{contains(steps.metadata.outputs.dependency-names, '_data/emoji_every_day')}}
+        if: ${{steps.dependabot-metadata.outputs.package-ecosystem}}!="bundler"
         run: gh pr merge --auto --rebase "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
