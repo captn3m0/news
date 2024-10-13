@@ -100,11 +100,13 @@ class BeatrootNews < Jekyll::Generator
     end
 
     Jekyll.logger.info 'News:', "Generated #{site.data['topics'].values.sum} article pages"
+    
     # These are fallback checks to make sure if we have a bug or get bad data,
     # we don't update the website with not enough news
     # better to fail the build than show an empty website.
-    raise 'Not enough articles, not updating website' if site.data['topics'].values.sum < 10
-    raise 'Not enough topics, not updating website' if site.data['topics'].size < 5
+    # Currently commented out, since we haven't seen updates in a while.
+    # raise 'Not enough articles, not updating website' if site.data['topics'].values.sum < 10
+    # raise 'Not enough topics, not updating website' if site.data['topics'].size < 5
   end
 
   private

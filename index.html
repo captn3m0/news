@@ -2,12 +2,14 @@
 title: "Beatroot News: Text-only"
 layout: default
 ---
+{% assign totalPostCount = 0 %}
 <div class="topic-container">
 <h1 class="topic-heading">{{page.title}}</h1>
 <div class="hr-line"></div>
 {% include date.html %}
 {% for T in site.data.topics %}
 {% assign post_count = T[1] %}
+{% assign totalPostCount = totalPostCount | plus: post_count %}
 {% if post_count > 0 %}
 <div class="topic-{{T[0]|downcase}} news-topic">
 <h2><a href="/{{T[0]}}/">{{T[0] | capitalize}}</a></h2>
@@ -18,11 +20,27 @@ layout: default
 	{% endfor %}
 </div>
 {% endif %}
-
 {% endfor %}
 
+{% if totalPostCount == 0  %}
+<div class="topic-container">
+<h1 class="topic-heading">We have no news</h1>
+	<div style="position:relative" class="detailswrapper">
+		This website fetches news from the <a href="https://app.beatrootnews.com/">Beatroot News
+		</a> website, which hasn't been updated recently. We intentionally only shows news from
+		yesterday and tomorrow, so there's no news here as a result.
+
+		Check back later for updates.
+	</div>
+</div>
+
+{% else %}
 <br><button id="hidden-notifier">Show <span id="hidden-count"></span> hidden topic(s)</button>
 
 <p>❖ - Syndicated news, primarily from PTI</p>
 <p>Dark/Light border on the right denotes articles from today/yesterday</p>
 </div>
+{% endif %}
+
+
+
