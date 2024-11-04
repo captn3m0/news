@@ -6,7 +6,7 @@ on:
       - main
   schedule:
     # 9th minute of every hour
-    - cron: '09 * * * *'
+    - cron: "09 * * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -32,7 +32,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@7d3497fd78c07c0d84ebafa58d8dac60cd1f0763 # v1.199.0
         with:
-          ruby-version: '3.2'
+          ruby-version: "3.3"
           bundler-cache: true
       - name: Setup Pages
         id: pages
