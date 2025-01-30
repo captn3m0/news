@@ -64,7 +64,7 @@ GEM
     http_parser.rb (0.8.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    jekyll (4.4.0)
+    jekyll (4.4.1)
       addressable (~> 2.4)
       base64 (~> 0.2)
       colorator (~> 1.0)
@@ -187,7 +187,7 @@ PLATFORMS
 
 DEPENDENCIES
   csv (~> 3.3)
-  jekyll (~> 4.4.0)
+  jekyll (~> 4.4.1)
   jekyll-include-cache (~> 0.2.1)
   jekyll-seo-tag (~> 2.8)
   jemoji (~> 0.13.0)
