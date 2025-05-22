@@ -27,8 +27,8 @@ end
 class BeatrootNews < Jekyll::Generator
   safe true
   priority :highest
-
-  MAX_POSTS = 150
+  # Temporarily lowered because we don't have enough news
+  MAX_POSTS = 10
   SOURCE_URL = "https://beatrootnews.com/api.php/article?page%5Blimit%5D=#{MAX_POSTS}&sort=-publishing_date"
 
   def fix_dates_for_dev(data)
