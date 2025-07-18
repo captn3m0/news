@@ -1,12 +1,13 @@
 # Based on https://github.com/actions/starter-workflows/blob/main/pages/jekyll.yml
 name: publish
-on:
-  push:
-    branches:
-      - main
-  schedule:
+on: workflow_dispatch
+  # Disabled for now: the Beatroot News site and app is dead
+  #push:
+  #  branches:
+  #    - main
+  # schedule:
     # 9th minute of every hour
-    - cron: "09 * * * *"
+    # - cron: "09 * * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
