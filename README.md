@@ -4,6 +4,12 @@ title: About This Site
 permalink: /about/
 ---
 
+> [!CAUTION]
+> This project is currently archived, since the upstream source is now dead.
+> If you would like to revive this, please drop me a message: <https://captnemo.in/contact/>.
+
+---
+
 This site is a text-only minimal version of [Beatroot News](https://app.beatrootnews.com/)
 [[iOS](https://apps.apple.com/in/app/beatroot-news/id1618735924)],
 [[Android](https://play.google.com/store/apps/details?id=com.beatrootnews.app)], a new news app by Freemedia Interactive Private Limited.
